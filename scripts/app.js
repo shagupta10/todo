@@ -3,16 +3,7 @@
  */
 angular.module("todoApp",[])
     .controller("MainCtrl",function($scope){
-      $scope.todos=[
-          {
-              text: "Todo 1",
-              completed: false
-          },
-          {
-              text: "Todo 2",
-              completed: false
-          }
-      ];
+      $scope.todos=[];
     $scope.add=function(){
         $scope.todos.push($scope.newTodo);
         $scope.newTodo={};
