@@ -3,32 +3,59 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>Angular Basic</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body ng-app="todoApp">
-<div ng-controller="MainCtrl">
-    <div>
-    <h1>Todo App1</h1>
+<div ng-controller="MainCtrl" class="container">
+    <div class="jumbotron">
+    <h3>Todo App1</h3>
+   </div>
+<form ng-submit="add()" name="form">
+  <div class="row">
+      <div class="col-md-12">
+    <input type="text" placeholder="Enter Todo" id="todo" ng-model="newTodo.text"  name="todoText" required>
+          <input type="submit" class="btn btn-primary" value="Add Todo" ng-disabled="form.$invalid">
+
+      </div>
+        </div>
 
 
-    <span>
-    <input type="text" placeholder="Enter Todo" id="todo" ng-model="newTodo.text">
-    <button ng-click="add()">Add</button>
-        </span>
-    </div>
+
     <br>
-    <div ng-repeat="item in todos">
-        <div>
-            <input type="checkbox" ng-model="item.completed">
-           <span ng-bind="item.text"></span>
+    <div class="row">
+        <div class="col-md-12">
+     <span ng-show="todos.length<=0">
+    No Todos to process
+    </span>
+    </div>
+        </div>
 
+
+    <div ng-repeat="item in todos">
+
+        <div class="row item" >
+            <div class="col-md-1">
+                <input type="checkbox" ng-model="item.completed">
+                </div>
+                <div class="col-md-4">
+           <span ng-bind="item.text" ng-class="{'completed':item.completed}"></span>
+                    </div>
+                    <div class="col-md-1">
             <button ng-click="delete(item)">X</button>
+
+                </div>
 
         </div>
 
     </div>
-<br>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+    <button ng-click="clearCompleted()" class="btn-primary btn-default">Clear Completed</button>
+            </div></div>
+</form>
 
-    <button ng-click="clearCompleted()">Clear Completed</button>
 </div>
 <script src="js/angular.min.js"></script>
 <script src="scripts/app.js"></script>
