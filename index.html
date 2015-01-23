@@ -14,34 +14,43 @@
 <form ng-submit="add()" name="form">
   <div class="row">
       <div class="col-md-12">
-    <input type="text" placeholder="Enter Todo" id="todo" ng-model="newTodo.text"  name="todoText" required>
+    <input type="text" placeholder="Enter Todo" id="todo" ng-model="newTodo.text"  name="todoText" required ng-maxlength="15" >
           <input type="submit" class="btn btn-primary" value="Add Todo" ng-disabled="form.$invalid">
 
       </div>
         </div>
 
-
-
+<span ng-show="form.todoText.$error.maxlength " class="error">
+   Todo text length should be max 15
+</span>
+<br>
     <br>
     <div class="row">
         <div class="col-md-12">
      <span ng-show="todos.length<=0">
     No Todo's to process
     </span>
+
     </div>
         </div>
+    <span ng-show="todos.length>0">
 
+    <a href="#" ng-click="criteria='All'" ng-class="{'active':criteria==='All'}"> All </a> |
+    <a href="#" ng-click="criteria='Active'" ng-class="{'active': criteria==='Active'}"> Active </a> |
+    <a href="#" ng-click="criteria='Completed'" ng-class="{'active': criteria==='Completed'}">Completed</a>
+    <hr>
+        </span>
 
     <div ng-repeat="item in todos|TodoFilter:criteria" >
 
-        <div class="row item">
+        <div class="row item"  ng-class-odd="'odd'" ng-class-even="'even'">
             <div class="col-md-1">
                 <input type="checkbox" ng-model="item.completed">
                 </div>
                 <div class="col-md-6" ng-class="{'completed':item.completed}">
            <span ng-bind="item.text" ></span>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-1" style="float:right">
             <button ng-click="delete(item)" class="btn btn-danger btn-sm">X</button>
 
                 </div>
@@ -49,12 +58,8 @@
         </div>
 
     </div>
-    <br>
     <hr>
-   <a href="#" ng-click="criteria='All'" ng-class="{'active':criteria==='All'}"> All </a> |
-    <a href="#" ng-click="criteria='Active'" ng-class="{'active': criteria==='Active'}"> Active </a> |
-        <a href="#" ng-click="criteria='Completed'" ng-class="{'active': criteria==='Completed'}">Completed</a>
-    <hr>
+
     <div class="row">
         <div class="col-md-12">
     <button ng-click="clearCompleted()" class="btn-primary btn-default">Clear Completed</button>
