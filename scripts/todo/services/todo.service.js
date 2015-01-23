@@ -19,7 +19,9 @@ angular.module("todo").
     serviceObj.clearCompleted=function(){
         for(var index=this.todos.length-1; index>=0; index--){
             if(this.todos[index].completed===true)
-                this.todos.splice(index, 1);
+                this.todos.splice(this.todos.indexOf(this.todos[index]),1);
+                //this.todos.splice(index, 1);
+
         }
     }
     return serviceObj;
