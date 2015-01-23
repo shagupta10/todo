@@ -1,0 +1,76 @@
+body {
+    min-height: 2000px;
+    padding-top: 70px;
+    position: relative;
+}
+
+.section{
+    padding-top:70px;
+}
+
+#aboutme{
+    background: #ffffff;
+}
+
+#tech{
+    background: #222;
+    color:white;
+}
+
+
+#certs{
+    background: #ffffff;
+}
+
+
+.fa-2 {
+    font-size: 2em;
+}
+
+.jumbotron{
+    background:#222;
+    color:white;
+}
+
+.section{
+    font-size:16pt;
+}
+
+.cert-wrapper .title{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cert-wrapper .from{
+    font-size: 18px;
+}
+
+.cert-wrapper .date{
+    font-size: 16px;
+    color: rgb(153, 153, 153);
+}
+.profile-size{
+    width:150px;
+    height:150px;
+}
+.completed{
+    text-decoration: line-through;
+    background-color: #ffff00;
+}
+.odd{
+    background-color: #bce8f1;
+
+}
+.even{
+    background-color: #c0c0c0;
+
+}
+.item{
+
+}
+div .row .item:nth-child(odd) {
+    background-color: #f1f1f1;
+}
+div .row .item:nth-child(even) {
+    background-color: #ffffff;
+}
